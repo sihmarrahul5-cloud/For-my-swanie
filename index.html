@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For My Love ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            text-align: center;
+        }
+
+        .screen {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+        }
+
+        .box {
+            width: 100%;
+            max-width: 500px;
+            padding: 35px 25px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        input {
+            width: 90%;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            margin: 20px 0 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 14px 25px;
+            border: none;
+            border-radius: 30px;
+            background: white;
+            color: #ff4f81;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #main {
+            display: none;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            font-size: 25px;
+            animation: float 6s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+
+        .photo {
+            width: 90%;
+            max-width: 350px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PASSWORD SCREEN -->
+
+    <div id="passwordScreen" class="screen">
+
+        <div class="box">
+
+            <h1>Hey My Love ❤️</h1>
+
+            <p>
+                I have created something special
+                just for you...
+            </p>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter our secret password">
+
+            <br>
+
+            <button onclick="openWebsite()">
+                Open My Heart ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAIN WEBSITE -->
+
+    <div id="main">
+
+        <div class="screen">
+
+            <div class="box">
+
+                <h1>
+                    To The Love Of My Life ❤️
+                </h1>
+
+                <p>
+                    You are one of the most beautiful
+                    parts of my life.
+                </p>
+
+                <p>
+                    Every moment with you
+                    is a memory I want to keep forever.
+                </p>
+
+                <img
+                    class="photo"
+                    src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80"
+                    alt="Love">
+
+                <p>
+                    I love you more than words can say. ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function openWebsite() {
+
+            const password =
+                document.getElementById("password").value;
+
+            if (password === "1234") {
+
+                document.getElementById(
+                    "passwordScreen"
+                ).style.display = "none";
+
+                document.getElementById(
+                    "main"
+                ).style.display = "block";
+
+                createHearts();
+
+            } else {
+
+                alert("Wrong password ❤️");
+
+            }
+        }
+
+
+        function createHearts() {
+
+            setInterval(function() {
+
+                const heart =
+                    document.createElement("div");
+
+                heart.className = "heart";
+                heart.innerHTML = "❤️";
+
+                heart.style.left =
+                    Math.random() * 100 + "%";
+
+                heart.style.animationDuration =
+                    (4 + Math.random() * 4) + "s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(function() {
+                    heart.remove();
+                }, 8000);
+
+            }, 500);
+
+        }
+
+    </script>
+
+</body>
+</html>
